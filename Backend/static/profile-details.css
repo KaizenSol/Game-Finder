@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+:root {
+  --text-color: #dddddd;
+  --item-color: #FF4556;;
+  --main-color: #121315;
+  --bg-color: #292A2C;
+
+}
+
+#back-arrow{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-left: 32px;
+}
+
+#cover-background {
+  background-color: var(--main-color);
+  height: 250px;
+}
+
+#user-info {
+  background-color: var(--bg-color);
+  height: 830px;
+}
+
+#user-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: 180px;
+  margin-top: -65px;
+  border: 3px solid #FF4556;
+}
+
+#user-tag {
+  color: var(--text-color);
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+.tag {
+  color: #808080;
+}
+
+#edit-profile-btn {
+  margin-left: -200px;
+}
+
+#edit-btn {
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: var(--item-color);
+  height: 50px;
+  width: 130px;
+  margin-top: 20px;
+}
+
+.game-badges {
+  margin-left: 10px;
+}
+
+.badge {
+  margin: 5px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #ffffff;
+  width: 100px;
+  height: 26px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.minecraft { 
+  background: #11AE4D;
+}
+.valorant { 
+  background: #FF4556;
+}
+.csgo { 
+  background: #4564FF;
+}
+
+#description-container {
+  margin-left: 400px;
+  margin-top: -40px;
+}
+
+.description {
+  margin-top: 40px;
+}
+
+.rank-badge {
+  display: inline-block;
+  background: var(--item-color);
+  color: white;
+  border-radius: 25px;
+  width: 175px;
+  height: 50px;
+  padding-top: 13px;
+  padding-left: 18px;
+  margin-top: 32px;
+  margin-left: -13px;
+}
+
+#user-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#main-user-text {
+  margin-left: -108px;
+  margin-top: 4px;
+}
+
+.previous{
+  margin-top: 24px;
+}

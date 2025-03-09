@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - {{ profile[0] }}</title>
+    <style>
+        .profile-container {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .profile-banner {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-top: -50px;
+            border: 3px solid white;
+        }
+        .profile-info {
+            margin-top: 10px;
+        }
+        .chat-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .chat-entry {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .chat-entry img {
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="{{ url_for('static', filename='uploads/' + profile[1]) }}" class="profile-banner" alt="Banner">
+        <img src="{{ url_for('static', filename='uploads/' + profile[2]) }}" class="profile-picture" alt="Profile Picture">
+        <div class="profile-info">
+            <h2>{{ profile[0] }}#{{ profile[6] }}</h2>
+            <p><strong>Bio:</strong> {{ profile[3] }}</p>
+            <p><strong>Games:</strong> {{ profile[4] }}</p>
+            <p><strong>Rank:</strong> {{ profile[5] }}</p>
+        </div>
+
+        <div class="chat-container">
+            <h2>Previous Connection</h2>
+            {% if chat_history %}
+                {% for chat in chat_history %}
+                    <div class="chat-entry">
+                        <img src="{{ url_for('static', filename='uploads/' + chat[2]) }}" alt="Profile" width="50">
+                        <strong>{{ chat[1] }}</strong> - Chat about: <em>{{ chat[3] }}</em><br>
+                        <small>Last message: "{{ chat[4] }}" ({{ chat[5] }})</small><br>
+                        <a href="{{ url_for('chat', chat_id=chat[0]) }}">View Chat</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No chat history available.</p>
+            {% endif %}
+        </div>
+
+        <a href="{{ url_for('index') }}">Main</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Profile</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f0f0f5;
+                        margin: 0;
+                        padding: 20px;
+                    }
+                    .profile-container, .edit-container {
+                        width: 80%;
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background-color: #fff;
+                        padding: 20px;
+                        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                        border-radius: 10px;
+                        text-align: center;
+                    }
+                    .hidden { display: none; }
+                    .profile-img {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        border: 3px solid #ddd;
+                    }
+                    .banner-img {
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                    input, button {
+                        margin: 5px;
+                        padding: 8px;
+                        width: 90%;
+                    }
+                    button {
+                        background-color: #007bff;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                    }
+                    button:hover {
+                        background-color: #0056b3;
+                    }
+                </style>
+            </head>
+            <body>
+
+              <!-- Profile View -->
+            <div id="view_profile" class="profile-container">
+                <h2>{{ username }}'s Profile</h2>
+
+                <p><strong>Username:</strong> <span id="view_username">{{ username }}</span></p>
+
+                <img src="{{ url_for('static', filename='uploads/' + profile.upload_banner) }}" alt="Banner">
+                <img src="{{ url_for('static', filename='uploads/' + profile.upload_profile) }}" alt="Profile Picture">
+                <p>Bio: {{ profile.bio }}</p>
+                <p>Games: {{ profile.games }}</p>
+                <p>Rank: {{ profile.rank }}</p>
+                <p>Tag: {{ profile.tag }}</p>
+
+
+                <h2>Previous Connection</h2>
+                {% if chat_history %}
+                    {% for chat in chat_history %}
+                        <img src="{{ url_for('static', filename='uploads/' + chat[2]) }}" alt="Profile" width="50">
+                        <strong>{{ chat[1] }}</strong> - Chat about: <em>{{ chat[3] }}</em><br>
+                        <small>Last message: "{{ chat[4] }}" ({{ chat[5] }})</small><br>
+                        <a href="{{ url_for('chat', chat_id=chat[0]) }}">View Chat</a><br>
+                    {% endfor %}
+                {% else %}
+                    <p>No chat history available.</p>
+                {% endif %}
+
+                {% if is_owner %}
+                    <button onclick="toggleEdit(true)">Edit Profile</button><br>
+                {% endif %}
+                <a href="{{ url_for('index') }}">Main</a>
+            </div>
+
+            <!-- Edit Profile Form (only for owner) -->
+            {% if is_owner %}
+            <div id="edit_profile_form" class="edit-container hidden">
+                <h2>Edit Profile</h2>
+                <form method="POST" action="{{ url_for('edit_profile') }}" enctype="multipart/form-data">
+                    <input type="text" name="username" placeholder="Username" value="{{ username }}"><br>
+                    <input type="file" name="upload_banner" accept="image/png, image/jpeg"><br>
+                    <input type="file" name="upload_profile" accept="image/png, image/jpeg"><br>
+                    <input type="text" name="bio" placeholder="Bio" value="{{ profile[4] }}"><br>
+                    <input type="text" name="games" placeholder="Games" value="{{ profile[5] }}"><br>
+                    <input type="text" name="rank" placeholder="Rank" value="{{ profile[6] }}"><br>
+                    <input type="text" name="tag" placeholder="Tag" value="{{ profile[7] }}"><br>
+                    <button type="submit">Save</button>
+                    <a href="{{ url_for('profile', username=username) }}">Cancel</a>
+                </form>
+            </div>
+            {% endif %}
+
+            <script>
+            function toggleEdit(isEditing) {
+                document.getElementById('view_profile').classList.toggle('hidden', isEditing);
+                document.getElementById('edit_profile_form').classList.toggle('hidden', !isEditing);
+            }
+
+
+
+            function updateDisplay() {
+                document.getElementById('view_username').textContent = document.getElementById('edit_username').value;
+                document.getElementById('view_bio').textContent = document.getElementById('edit_bio').value;
+                document.getElementById('view_games').textContent = document.getElementById('edit_games').value;
+                document.getElementById('view_rank').textContent = document.getElementById('edit_rank').value;
+                document.getElementById('view_tag').textContent = document.getElementById('edit_tag').value;
+            }
+
+            function updateImage(type) {
+                const fileInput = type === 'banner' ? document.getElementById('edit_banner') : document.getElementById('edit_image');
+                const imgElement = type === 'banner' ? document.getElementById('view_banner') : document.getElementById('view_image');
+
+                const file = fileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        imgElement.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function toggleEdit(isEditing) {
+                document.getElementById('view_profile').classList.toggle('hidden', isEditing);
+                document.getElementById('edit_profile_form').classList.toggle('hidden', !isEditing);
+
+                if (!isEditing) {
+                    document.getElementById('edit_banner').value = '';
+                    document.getElementById('edit_image').value = '';
+                }
+            }
+            </script>
+
+            </body>
+            </html>
