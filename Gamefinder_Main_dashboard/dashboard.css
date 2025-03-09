@@ -1,0 +1,300 @@
+* {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+:root {
+  --text-color: #dddddd;
+  --bg-color: #E74C3C;
+  --main-color: #121315;
+}
+
+body {
+  background-color: var(--main-color);
+}
+
+header {
+  margin-top: 35px;
+}
+
+#gamehunter {
+  color: var(--text-color);
+  margin-left: 75px;
+}
+
+#post-btn {
+  background-color: var(--bg-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  width: 125px;
+  margin-left: 30em;
+  margin-top: 7px;
+  cursor: pointer;
+}
+
+#user-profile-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: -75px;
+}
+
+#user-icon {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-left: 240px;
+}
+
+#main-user {
+  color: var(--text-color);
+  margin-top: 13px;
+  margin-left: -70px;
+}
+
+#container {
+  display: flex;
+}
+
+/* Left Section */
+#left-section {
+  background-color: #292A2C;
+  padding: 50px;
+  border-radius: 10px;
+  margin-left: 60px;
+  margin-top: 25px;
+}
+
+.left-container {
+  margin-left: 10px;
+}
+
+.span-container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+#game-tag {
+  background-color: var(--bg-color);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-size: 14px;
+  position: absolute;
+  margin-top: -20px;
+}
+
+#carousel-img {
+  width: 68.5em;
+  height: 30.5em;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-top: 30px;
+}
+
+.img-container {
+  border-radius: 10px;
+  height: 37,5em;
+}
+
+#post-content {
+  margin-top: 40px;
+}
+
+#avatar {
+  width: 75px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: -8px;
+}
+
+#user-content {
+  margin-left: -85px;
+  margin-top: 2px;
+}
+
+.details-btn, .connect-btn {
+  padding: 17px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.details-btn {
+  background-color: grey;
+}
+
+.connect-btn {
+  background-color: var(--bg-color);
+  color: white;
+}
+
+#btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 84px;
+}
+
+#carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #5a5a5a;  
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #ffffff; 
+}
+
+
+#right-section {
+  background-color: #292A2C;
+  padding: 50px;
+  border-radius: 10px;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+#active-player-icon {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+#player-container {
+  margin-top: -15px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.player-activity {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.online {
+  background-color: green;
+}
+
+.user-name, .user-game {
+  margin: 0;
+}
+
+.status-container {
+  margin-top: 40px;
+  margin-left: 60px;
+}
+
+.team-status {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.team-status::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 23px;
+  background-color: #FF4D4D; /* Red line */
+  margin-right: 6px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+.card {
+  background-color: #292A2C;
+  border-radius: 12px;
+  padding: 20px;
+  width: 29.0625em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#user-player-icon {
+  width: 70px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 5px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 12px;
+  color: white;
+}
+
+.competitive { 
+  background: blue; 
+}
+
+.casual { 
+  background: green; 
+}
+
+.tournament { 
+  background: red; 
+}
+
+.details p {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.rank, .region {
+  font-weight: bold;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
