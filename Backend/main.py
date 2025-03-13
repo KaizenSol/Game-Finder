@@ -442,8 +442,8 @@ def profile():
 
     username = user[0]
 
-    # Fetch profile
-    c.execute("SELECT upload_banner, upload_profile, bio, games, rank, tag FROM profile WHERE user_id = ?", (user_id,))
+    # Fetch profile with default values
+    c.execute("SELECT upload_banner, upload_profile, bio, games, rank, COALESCE(tag, '#0000') FROM profile WHERE user_id = ?", (user_id,))
     profile_data = c.fetchone()
 
     profile = {
@@ -452,7 +452,7 @@ def profile():
         'bio': profile_data[2] if profile_data else '',
         'games': profile_data[3] if profile_data else '',
         'rank': profile_data[4] if profile_data else '',
-        'tag': profile_data[5] if profile_data else ''
+        'tag': profile_data[5] if profile_data else '#0000'  # Default tag
     }
 
     # Chat history (previous conversations)
@@ -487,19 +487,23 @@ def view_profile(user_id):
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
 
-    # Fetch user details along with profile info
+    # Fetch user profile details
     c.execute("""
-        SELECT users.username, COALESCE(profile.upload_banner, 'default_banner.jpg'),
+        SELECT users.username,
+               COALESCE(profile.upload_banner, 'default_banner.jpg'),
                COALESCE(profile.upload_profile, 'default_profile.jpg'),
-               COALESCE(profile.bio, 'No bio available'), COALESCE(profile.games, 'Not specified'),
-               COALESCE(profile.rank, 'Unranked'), COALESCE(profile.tag, '0000')
+               COALESCE(profile.bio, 'No bio available'),
+               COALESCE(profile.games, 'Not specified'),
+               COALESCE(profile.rank, 'Unranked'),
+               COALESCE(profile.tag, '0000'),
+               users.isonline
         FROM users
         LEFT JOIN profile ON users.id = profile.user_id
         WHERE users.id = ?
     """, (user_id,))
     profile = c.fetchone()
 
-    # Fetch chat history where the last message was NOT sent by the viewed user
+    # Fetch recent chat history
     c.execute("""
         SELECT chats.id, users.username, COALESCE(profile.upload_profile, 'default_profile.jpg'),
                entries.title, messages.message, messages.sent_at
@@ -514,16 +518,24 @@ def view_profile(user_id):
         AND messages.sender_id != ?
         ORDER BY messages.sent_at DESC
     """, (user_id, user_id))
-
     chat_history = c.fetchall()
+
+    # Fetch all users with online status and tags
+    c.execute("""
+        SELECT users.id, users.username, COALESCE(profile.tag, '0000'), users.isonline
+        FROM users
+        LEFT JOIN profile ON users.id = profile.user_id
+    """)
+    users = c.fetchall()
 
     conn.close()
 
     if profile:
-        return render_template('view_profile.html', profile=profile, chat_history=chat_history)
+        return render_template('view_profile.html', profile=profile, chat_history=chat_history, users=users)
     else:
         flash("User profile not found.")
         return redirect(url_for('index'))
+
 
 # Run the application
 if __name__ == '__main__':
