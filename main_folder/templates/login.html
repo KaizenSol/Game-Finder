@@ -10,17 +10,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="login-styles.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login-styles.css') }}">
 </head>
 
 <body>
-  <div class="container-fluid g-0">
+  <div class="" id="main_container">
     <div class="row g-0">
       <div class="col-12 container">
         <div class="row g-0">
           <!--Left Panel-->
           <div class="col-5" id="left-panel">
-            <img src="./static/Bloodhound.png" alt="Character">
+            <div>
+                <a href="{{ url_for('index') }}"><svg id="back-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg></a>
+            </div>
+            <div>
+              <img src="{{ url_for('static', filename='bloodhound.png') }}" alt="bloodhound">
+
+            </div>
           </div>
           <!--Right Panel-->
           <div class="col-7" id="right-panel">
@@ -31,14 +39,14 @@
                     <h2 class="Title">GameHunter</h2>
                   </div>
                   <!--Input Form-->
-                  <form>
+                  <form method="POST" action="{{ url_for('login') }}">
                     <div class="row g-0 input-container">
                       <div class="col-12">
                         <div class="row g-0">
                           <div class="col-12 input">
                             <label for="username" class="label">Username:</label>
                             <div class="col-12 d-flex justify-content-center">
-                              <input type="text" id="Username" placeholder="Name" name="Username" class="reg-form">
+                              <input type="text" id="username" placeholder="username" name="username" class="reg-form">
                             </div>
                           </div>
                         </div>
@@ -46,7 +54,7 @@
                           <div class="col-12 input">
                             <label for="Password" class="label">Password:</label>
                             <div class="col-12 d-flex justify-content-center">
-                              <input type="password" id="Password" placeholder="••••••••" name="Password"
+                              <input type="password" id="password" placeholder="••••••••" name="password"
                                 class="reg-form">
                             </div>
                           </div>
@@ -63,8 +71,7 @@
                         </div>
                         <div class="row g-0">
                           <div class="col-12 d-flex justify-content-center input">
-                            <p class="create-account-btn"><a href="">CREATE AN ACCOUNT</a>
-                            </p>
+                            <p class="create-account-btn"><a href="{{ url_for('register') }}">CREATE AN ACCOUNT</a></p>
                           </div>
                         </div>
                       </div>
@@ -80,6 +87,16 @@
   </div>
 
 </body>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const flashMessages = document.querySelector('.flash-messages');
+            if (flashMessages) {
+                setTimeout(function() {
+                    flashMessages.style.display = 'none';
+                }, 1000);
+            }
+        });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
   </script>

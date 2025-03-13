@@ -15,10 +15,19 @@
     padding: 0;
 }
 
+#back-arrow{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 40px;
+    margin-left: 32px;
+}
+
 #left-panel {
     background-color: var(--main-color);
     border: #ffffff;
-    height: 920px;
+    height: 954px;
 }
 
 #right-panel img {
