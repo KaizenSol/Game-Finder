@@ -1,0 +1,1018 @@
+* {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: #535353;
+    --main-text-color: #ffffff;
+    --dash-text-color: #dddddd;
+    --bg-color: #FF4556;
+    --main-color: #121315;
+    --profile-bg: #292A2C;
+    --gradient-right: rgba(109, 38, 44, 0.301);
+    --gradient-left: rgba(50, 255, 193, 0.103);
+    --gradient-background: rgba(34, 35, 48, 0.93);
+    --gradient-background-right: rgba(109, 38, 44, 0);
+    --gradient-background-left: rgba(50, 255, 193, 0.103);
+    --color-showcase-header: rgba(43, 45, 68, 0.93);
+    --gradient-showcase-header-left: rgba(115, 173, 184, 0.247);
+    --btn-background: rgba(43, 52, 68);
+    --btn-background-hover: rgb(53, 62, 78);
+    --btn-outline: rgb(93, 102, 118);
+}
+
+#back-arrow {
+  width: 160px;
+  height: 45px;
+  margin-top: 8px;
+  margin-left: -45px;
+}
+
+/* login-page css */
+
+#login-page-container {
+    padding: 0;
+}
+
+#login-left-panel {
+    background-color: var(--bg-color);
+    border: #ffffff;
+    height: 920px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+#login-left-panel img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+#login-right-panel {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+#login-Title {
+    font-size: 35px;
+}
+
+#login-form-container {
+    margin-top: 150px;
+}
+
+#login-input-container {
+    margin-top: 15px;
+}
+
+#login-input {
+    margin-top: 35px;
+}
+
+.login-reg-form {
+    width: 281px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #2b2b2b;
+    color: white;
+}
+
+.login-reg-form::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+.login-label {
+    margin-left: 100px;
+    letter-spacing: 1.5px;
+}
+
+.login-btn {
+    width: 115px;
+    padding: 10px;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ff6b78;
+}
+
+#login-signup-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 20px 0;
+    position: relative;
+}
+
+#login-signup-text a {
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+#login-signup-text::before, #login-signup-text::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px;
+}
+
+.login-create-account-btn a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-create-account-btn a:hover {
+    text-decoration: underline;
+    color: #c0c0c0;
+}
+
+/* signup-page css */
+
+#signup-container {
+    padding: 0;
+}
+
+#signup-left-panel {
+    background-color: var(--main-color);
+    border: #ffffff;
+    height: 920px;
+}
+
+#signup-right-panel img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+#signup-right-panel {
+    background-color: var(--bg-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.signup-Title{
+    font-size: 35px;
+    color: var(--main-text-color);
+}
+
+#signup-form-container {
+    margin-top: 150px;
+}
+
+#singup-input-container {
+    margin-top: 15px;
+}
+
+#signup-input {
+    margin-top: 20px;
+}
+
+.signup-reg-form {
+    width: 281px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #2b2b2b;
+    color: var(--main-text-color);
+}
+
+.signup-reg-form::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+.signup-label {
+    letter-spacing: 1.5px;
+    color: var(--main-text-color);
+}
+
+#signup-create-btn {
+    width: 211px;
+    height: 55px;
+    padding: 10px;
+    margin-top: 25px;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#signup-create-btn:hover {
+    background-color: #ff6b78;
+}
+
+/*  Dashboard  */
+
+#dash-container {
+    background-color: var(--main-color);
+  }
+
+  #dash-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+  }
+
+  #user-profile-container {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-right: 70px;
+  }
+
+  #dash-main-user-container {
+    display: flex;
+    align-items: center;
+  }
+
+  #gamehunter {
+    margin-left: 60px;
+  }
+
+  #gamehunter a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  #dash-log-out {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+  #dash-post-btn {
+    background-color: var(--bg-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: 125px;
+    cursor: pointer;
+  }
+
+  #dash-user-icon {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+    fill: #ffffff;
+  }
+
+  #dash-main-user {
+    color: var(--dash-text-color);
+    text-decoration: none;
+  }
+
+  #dash-container {
+    display: flex;
+  }
+
+  /* Left Section */
+  #left-section {
+    background-color: #292A2C;
+    padding: 50px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-top: 25px;
+  }
+
+  #dash-span-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #game-tag {
+    background-color: var(--bg-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 16px;
+    font-size: 14px;
+    position: absolute;
+    margin-top: -20px;
+  }
+
+  #carousel-img {
+    width: 68.5em;
+    height: 30.5em;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-top: 30px;
+  }
+
+  #dash-img-container {
+    border-radius: 10px;
+    height: 37,5em;
+  }
+
+  #dash-post-content {
+    margin-top: 40px;
+  }
+
+  #dash-avatar {
+    width: 75px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: -8px;
+  }
+
+  #dash-user-content {
+    margin-left: -85px;
+    margin-top: 2px;
+    color: #ffffff;
+  }
+
+  .details-btn, .connect-btn {
+    padding: 17px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+  }
+
+  .details-btn {
+    background-color: grey;
+    color: #ffffff;
+  }
+
+  .connect-btn {
+    background-color: var(--bg-color);
+    color: #ffffff;
+  }
+
+  #dash-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 84px;
+  }
+
+  #carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #5a5a5a;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .dot.active {
+    background-color: #ffffff;
+  }
+
+  /*  right-section  */
+
+  #right-section {
+    background-color: #292A2C;
+    padding: 50px;
+    border-radius: 10px;
+    margin-left: 25px;
+    margin-top: 25px;
+  }
+
+  #dash-active-player-icon {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  #dash-active-player-container {
+    color: #ffffff;
+  }
+
+  #dash-player-container {
+    margin-top: -15px;
+  }
+
+  .dash-player {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  #dash-player-activity {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+  }
+
+  .dash-status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+  }
+
+  .dash-online {
+    background-color: green;
+  }
+
+  .dash-user-name, .dash-user-game {
+    margin: 0;
+  }
+
+  .status-container {
+    margin-top: 40px;
+    margin-left: 60px;
+  }
+
+  .team-status {
+    display: flex;
+    align-items: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+  }
+
+  .team-status::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 23px;
+    background-color: #FF4D4D; /* Red line */
+    margin-right: 6px;
+  }
+
+  /*  dash-board cards  */
+
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 100px;
+  }
+
+  .card {
+    background-color: #292A2C;
+    border-radius: 12px;
+    padding: 20px;
+    width: 29.0625em;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    color: #ffffff;
+  }
+
+  #user-player-icon {
+    width: 70px;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
+  .tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 12px;
+    color: white;
+  }
+
+  .competitive {
+    background: blue;
+  }
+
+  .casual {
+    background: green;
+  }
+
+  .tournament {
+    background: red;
+  }
+
+  .details p {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+
+  .rank, .region {
+    font-weight: bold;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+  }
+
+/* posting-page */
+
+#post-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--main-color);
+  color: var(--main-text-color);
+}
+
+#post-main-container {
+  margin-top: 60px;
+}
+#posting-text {
+  font-size: 35px;
+}
+
+.post-input {
+  margin-top: 20px;
+}
+
+.post-reg-form {
+  width: 281px;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background: #2b2b2b;
+  color: var(--main-text-color);
+}
+
+.post-reg-form::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}
+
+.post-label {
+  letter-spacing: 1px;
+  color: var(--main-text-color);
+}
+
+#post-Description-textarea {
+  height: 150px;
+  resize: none;
+}
+
+#post-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#post-btn {
+  width: 211px;
+  height: 55px;
+  padding: 10px;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 70px;
+}
+
+#post-btn:hover {
+  background-color: #ff6b78;
+}
+
+/* pop-page */
+
+#pop-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--main-color);
+  color: var(--main-text-color);
+}
+
+#pop-user-icon {
+  max-width: 3%;
+  height: auto;
+  border-radius: 50%;
+}
+
+#pop-user-container {
+  margin-top: 100px;
+  margin-left: -25px;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+#pop-user-text {
+  color: #ccc;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#pop-game-container {
+  height: 400px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #222;
+  border-radius: 10px;
+}
+
+#pop-labels {
+  font-size: 17px;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.pop-values {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+#pop-labels, .pop-values {
+  color: var(--main-text-color);
+}
+
+/* profile-details */
+
+#cover-background {
+  background-color: var(--main-color);
+  height: 250px;
+}
+
+#prof-user-info {
+  background-color: var(--profile-bg);
+  height: 830px;
+}
+
+#prof-user-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-left: 180px;
+  margin-top: -65px;
+  border: 3px solid #FF4556;
+}
+
+#prof-user-tag {
+  color: var(--main-text-color);
+  margin-left: 100px;
+  margin-top: 20px;
+}
+
+#prof-user-tag a {
+  text-decoration: none;
+  color: var(--main-text-color);
+}
+
+#tag {
+  color: #808080;
+}
+
+#edit-profile-btn {
+  margin-left: -200px;
+}
+
+#prof-edit-btn {
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: var(--bg-color);
+  height: 50px;
+  width: 130px;
+  margin-top: 20px;
+}
+
+.game-badges {
+  margin-left: 10px;
+}
+
+.badge {
+  margin: 5px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #ffffff;
+  width: 100px;
+  height: 26px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.minecraft {
+  background: #11AE4D;
+}
+.valorant {
+  background: #FF4556;
+}
+.csgo {
+  background: #4564FF;
+}
+
+.bio  {
+  color: var(--main-text-color);
+}
+
+#description-container {
+  margin-left: 400px;
+  margin-top: 20px;
+}
+
+.description {
+  margin-top: 15px;
+  color: var(--main-text-color);
+}
+
+.rank-badge {
+  display: inline-block;
+  background: var(--bg-color);
+  color: white;
+  border-radius: 25px;
+  width: 175px;
+  height: 50px;
+  line-height: 48px;
+  padding-left: 18px;
+}
+
+#user-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#main-user-text {
+  margin-left: -108px;
+  margin-top: 4px;
+}
+
+/* chat-page */
+
+#chat-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--main-color);
+  color: var(--main-text-color);
+}
+
+#user-icon {
+  max-width: 3%;
+  height: auto;
+}
+
+#user-container {
+  margin-top: 100px;
+  margin-left: -25px;
+  margin-bottom: 10px;
+  gap: 5px;
+}
+
+#user-text {
+  color: #ccc;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#chat-box {
+  height: 300px;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--profile-bg);
+}
+
+.message {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  word-wrap: break-word;
+}
+
+.received {
+  background-color: #666;
+  color: white;
+  align-self: flex-start;
+}
+
+.sent {
+  background-color: var(--bg-color);
+  color: white;
+  align-self: flex-end;
+}
+
+#chat-input {
+  margin-top: 25px;
+}
+
+#chat-input-text {
+  padding: 8px;
+  background-color: var(--profile-bg);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 350px;
+  text-align: justify;
+}
+
+#chat-input-btn {
+  background-color: var(--bg-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 200px;
+  margin-left: 100px;
+}
+
+#chat-input-text, #chat-input-btn {
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Bebas Neue", serif;
+  font-size: 20px;
+}
+
+/* profile-page */
+
+#profile-cover-background {
+  background-color: var(--main-color);
+  height: 250px;
+}
+
+#profile-user-info {
+  background: radial-gradient(farthest-side at top right, var(--gradient-right), transparent 500px), radial-gradient(farthest-corner at top left, var(--gradient-left), transparent 600px), radial-gradient(farthest-corner at bottom right, var(--gradient-background-right), transparent 500px), radial-gradient(farthest-corner at bottom left, var(--gradient-background-left), transparent 600px);
+  background-color: var(--gradient-background);
+  height: 830px;
+}
+
+#profile-avatar-container {
+  display: flex;
+  justify-content: center;
+}
+
+#profile-user-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: -65px;
+  border: 3px solid #FF4556;
+}
+
+#profile-user-tag {
+  display: flex;
+  justify-content: center;
+  color: var(--dash-text-color);
+  margin-top: 20px;
+}
+
+#profile-tag {
+  color: #808080;
+}
+
+.profile-game-badges {
+  margin-left: 10px;
+}
+
+.badge {
+  margin: 5px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #ffffff;
+  width: 100px;
+  height: 26px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.minecraft {
+  background: #11AE4D;
+}
+.valorant {
+  background: #FF4556;
+}
+.csgo {
+  background: #4564FF;
+}
+
+#profile-bio-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+#profile-description-container {
+  background-color: #1F2125 ;
+  padding: 50px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#profile-description {
+  margin-top: 15px;
+}
+
+#active-player-icon {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.rank-badge {
+  display: inline-block;
+  background: var(--bg-color);
+  color: white;
+  border-radius: 25px;
+  width: 175px;
+  height: 50px;
+  line-height: 48px;
+  padding-left: 18px;
+}
+
+#profile-user-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#main-user-text {
+  margin-left: -108px;
+  margin-top: 4px;
+}
+
+#right-section {
+  background-color: #1F2125;
+  padding: 50px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+#friends {
+  color: var(--main-text-color);
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.player-activity {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.online {
+  background-color: green;
+}
+
+.user-name, .user-game {
+  margin: 0;
+  color: var(--main-text-color);
+}

@@ -15,6 +15,15 @@ body {
   background-color: var(--main-color);
 }
 
+#back-arrow{
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 40px;
+  margin-left: 32px;
+}
+
 #user-icon {
   max-width: 3%;
   height: auto;

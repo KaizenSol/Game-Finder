@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+  }
+
+  :root {
+    --text-color: #dddddd;
+    --item-color: #FF4556;;
+    --main-color: #121315;
+    --bg-color: #292A2C;
+
+  }
+
+  body {
+    background-color: var(--main-color);
+  }
+
+  #back-arrow-container {
+    position: relative;
+    z-index: 5;
+    background-color: hsl(220, 8%, 8%, 0.0);
+    width: 50px;
+    height: 100px;
+    margin-bottom: -100px;
+    margin-left: 32px;
+  }
+
+  #back-arrow {
+    height: 50px;
+    width: 50px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  #cover-background {
+    background-color: var(--main-color);
+    height: 250px;
+    z-index: 1;
+  }
+
+  #user-info {
+    background-color: var(--bg-color);
+
+  }
+
+
+  #user-tag {
+    color: var(--text-color);
+    margin-left: 100px;
+    margin-top: 80px;
+  }
+
+  .tag {
+    color: #808080;
+  }
+
+  #edit-profile-btn {
+    margin-left: -200px;
+  }
+
+  #edit-btn {
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: var(--item-color);
+    height: 50px;
+    width: 130px;
+    margin-top: 20px;
+  }
+
+  .badge {
+    margin: 5px;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #ffffff;
+    width: 100px;
+    height: 26px;
+    text-align: center;
+    line-height: 20px;
+  }
+
+  #description-container {
+    margin-left: 400px;
+    margin-top: -40px;
+  }
+
+  .description {
+    margin-top: 40px;
+    margin-left: 16px;
+  }
+
+  .rank-badge {
+    display: inline-block;
+    background: var(--item-color);
+    color: white;
+    border-radius: 25px;
+    width: 175px;
+    height: 50px;
+    padding-top: 13px;
+    padding-left: 18px;
+    margin-top: 32px;
+    margin-left: -13px;
+  }
+
+  #user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  #main-user-text {
+    margin-left: -108px;
+    margin-top: 4px;
+  }
+
+  .previous{
+    margin-top: 24px;
+  }
+
+  input, textarea{
+    color: #121315;
+    border-radius: 10px;
+    padding: 4px 6px;
+    background-color: #ffffff;
+    text-decoration: none;
+  }
+
+  #user-tag input, .description input{
+    width: 200px;
+  }
+
+  #bio textarea{
+    width: 464px;
+    height: 100px;
+    resize: none;
+  }
+
+  #img_input {
+    cursor: pointer;
+  }
+
+  #img_input img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 180px;
+    margin-top: -65px;
+    border: 3px solid #FF4556;
+    object-fit: cover;
+    display: block;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 5;
+
+  }
+
+  #bg_img_input {
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+  }
+
+  #bg_img_input img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
