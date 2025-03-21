@@ -247,7 +247,7 @@
     display: flex;
     align-items: center;
     gap: 35px;
-    margin-right: 70px;
+    margin-left: 1000px;
   }
 
   #dash-main-user-container {
@@ -267,6 +267,7 @@
   #dash-log-out {
     text-decoration: none;
     color: #ffffff;
+    margin-right: 100px;
 }
 
   #dash-post-btn {
@@ -277,6 +278,7 @@
     border-radius: 5px;
     width: 125px;
     cursor: pointer;
+    margin-right: 100px;
   }
 
   #dash-user-icon {
@@ -316,7 +318,7 @@
     border-radius: 16px;
     font-size: 14px;
     position: absolute;
-    margin-top: -20px;
+
   }
 
   #carousel-img {
@@ -893,8 +895,11 @@
   width: 200px;
   height: 200px;
   border-radius: 50%;
+  object-fit: cover;
+  display: block;
   margin-top: -65px;
   border: 3px solid #FF4556;
+  background: url(/static/images/avatar.png) no-repeat center center / cover;
 }
 
 #profile-user-tag {
@@ -973,8 +978,18 @@
 }
 
 #main-user-text {
-  margin-left: -108px;
+  margin-left: -6px;
   margin-top: 4px;
+}
+
+#main-user-text-chat {
+  margin-left: 50px;
+
+}
+
+.visit-prof-link {
+  text-decoration: none;
+  color: white;
 }
 
 #right-section {
@@ -1008,8 +1023,12 @@
   margin-left: 10px;
 }
 
+.offline {
+    background-color: red;
+}
+
 .online {
-  background-color: green;
+    background-color: green;
 }
 
 .user-name, .user-game {

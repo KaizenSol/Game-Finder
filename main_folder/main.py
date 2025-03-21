@@ -3,12 +3,16 @@ from werkzeug.utils import secure_filename
 import sqlite3
 import hashlib
 import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
+app.secret_key = os.getenv('SECRET_KEY')
 
-UPLOAD_FOLDER = 'static/uploads/'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+UPLOAD_FOLDER = os.getenv('UPLOAD_FOLDER', 'static/uploads/')
+ALLOWED_EXTENSIONS = set(os.getenv('ALLOWED_EXTENSIONS', 'png,jpg,jpeg').split(','))
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 if not os.path.exists(UPLOAD_FOLDER):
@@ -22,9 +26,13 @@ def hash_password(password):
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# Database connection function
+def get_db_connection():
+    return sqlite3.connect(os.getenv('DATABASE_NAME', 'database.db'))
+
 # Database initialization
 def init_db():
-    conn = sqlite3.connect('database.db')
+    conn = get_db_connection()
     c = conn.cursor()
 
     # Create entries table with user_id
@@ -443,7 +451,7 @@ def profile():
     username = user[0]
 
     # Fetch profile with default values
-    c.execute("SELECT upload_banner, upload_profile, bio, games, rank, COALESCE(tag, '#0000') FROM profile WHERE user_id = ?", (user_id,))
+    c.execute("SELECT upload_banner, upload_profile, bio, games, rank, COALESCE(tag, '0000') FROM profile WHERE user_id = ?", (user_id,))
     profile_data = c.fetchone()
 
     profile = {
@@ -452,7 +460,7 @@ def profile():
         'bio': profile_data[2] if profile_data else '',
         'games': profile_data[3] if profile_data else '',
         'rank': profile_data[4] if profile_data else '',
-        'tag': profile_data[5] if profile_data else '#0000'  # Default tag
+        'tag': profile_data[5] if profile_data else '0000'  # Default tag
     }
 
     # Chat history (previous conversations)
